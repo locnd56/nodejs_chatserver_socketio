@@ -2,14 +2,6 @@ var qs = require('querystring');
 var fs = require('fs');
 
 exports.insert = function(table, db,name) {
-	// exports.select(table,db,function(rows){
-	// 	for(var row in rows){
-	// 		console.log(row);
-	// 		if (row.room_name === name) {
-	// 			console.log("Lap roi ten khac di");
-	// 		}
-	// 	}
-	// })
 	var query = "INSERT INTO "+ table+ " VALUES (NULL, '"+ name+"');"
 	db.query(query,function(err){
 		if (err) {
@@ -21,8 +13,8 @@ exports.insert = function(table, db,name) {
 exports.select = function(table,db,callback){
 	var query = "SELECT * FROM "+table;
 	db.query(query,function(err,rows){
-		if (err) {throw err}
-			callback(rows);
+		if (err) {callback(err)}
+			callback(null,rows);
 	})
 }
 

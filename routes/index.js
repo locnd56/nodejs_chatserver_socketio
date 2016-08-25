@@ -2,9 +2,9 @@ var express = require('express');
 var router = express.Router();
 var fs = require('fs')
 var mime = require('mime')
-var chatServer = require('../lib/chat_server')
+var chatServer = require('lib/chat_server')
 var cache = {}
-var app = require('../app')
+var app = require('app')
 var http = require('http')
 
 function send404(res){
